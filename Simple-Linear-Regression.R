@@ -14,3 +14,10 @@ training_data <- cars[1:16,]
 test_data <- cars[17:32,]
 
 #Build a regression Model
+regression_results <- lm(mpg ~ disp, data=training_data)
+
+# Predict regression in function on test data
+prediction_results <- predict(regression_results, test_data)
+
+#results of prediction 
+actual_prediction_value <- data.frame(cbind(actuals=training_data$mpg,predicteds=prediction_results))
